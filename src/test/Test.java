@@ -52,8 +52,11 @@ public class Test {
 		/*String s1="",p="a*b*.*";
 		System.out.println(s.isMatch(s1, p));*/
 		
-		int[] height = {1,8,6,2,5,4,8,3,7};//{1,1};
-		System.out.println(s.maxArea(height));
+		/*int[] height = {1,8,6,2,5,4,8,3,7};//{1,1};
+		System.out.println(s.maxArea(height));*/
+		
+		int num = 1916;
+		System.out.println(s.intToRoman(num));
 		
 	}
 

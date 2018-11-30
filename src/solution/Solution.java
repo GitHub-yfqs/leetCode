@@ -571,4 +571,95 @@ public class Solution {
 		}
 		 return maxArea;
 	    }
+	 	/*
+	 	 * 12. 整数转罗马数字
+	 	 * 2018/11/30
+	 	 */
+	 public String intToRoman(int num) {
+		 List<StringBuilder> strlist = new ArrayList();
+		 while(num>0){
+			 StringBuilder str = new StringBuilder();
+			int count = num%10;
+			if (count==4||count==9) {
+				if (strlist.size()==0) {
+					if (count==4) {
+						str = str.append("IV");
+					}else {
+						str = str.append("IX");
+					}
+				}else if (strlist.size()==1) {
+					if (count==4) {
+						str = str.append("XL");
+					}else {
+						str = str.append("XC");
+					}
+				}else if (strlist.size()==2) {
+					if (count==4) {
+						str = str.append("CD");
+					}else {
+						str = str.append("CM");
+					}
+				}
+			} else {
+				if (strlist.size()==0) {
+					//大于5
+					if (count>=5) {
+						str.append("V");
+						count=count-5;
+						while (count>0) {
+							str.append("I");
+							count--;
+						}
+					}else {
+						while (count>0) {
+							str.append("I");
+							count--;
+						}
+					}
+				}else if (strlist.size()==1) {
+						//大于5
+						if (count>=5) {
+							str.append("L");
+							count=count-5;
+							while (count>0) {
+								str.append("X");
+								count--;
+							}
+						}else {
+							while (count>0) {
+								str.append("X");
+								count--;
+							}
+						}
+				}else if (strlist.size()==2) {
+						//大于5
+						if (count>=5) {
+							str.append("D");
+							count=count-5;
+							while (count>0) {
+								str.append("C");
+								count--;
+							}
+						}else {
+							while (count>0) {
+								str.append("C");
+								count--;
+							}
+						}
+				}else if (strlist.size()==3) {
+					while (count>0) {
+						str.append("M");
+						count--;
+					}
+				}
+			}
+			strlist.add(str);
+			num = num/10;
+		 }
+		 StringBuilder stringBuilder = new StringBuilder();
+		 for (int i = strlist.size()-1; i>=0; i--) {
+			stringBuilder.append(strlist.get(i));
+		}
+	        return stringBuilder.toString();
+	    }
 }

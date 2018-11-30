@@ -49,8 +49,11 @@ public class Test {
 		//String s1="a",p="ab*";
 		//String s1="aab",p="c*a*b";
 		//String s1="aaa",p="aaaa";//这个输出答案错误
-		String s1="",p="a*b*.*";
-		System.out.println(s.isMatch(s1, p));
+		/*String s1="",p="a*b*.*";
+		System.out.println(s.isMatch(s1, p));*/
+		
+		int[] height = {1,8,6,2,5,4,8,3,7};//{1,1};
+		System.out.println(s.maxArea(height));
 		
 	}
 

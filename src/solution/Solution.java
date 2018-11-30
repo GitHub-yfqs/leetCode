@@ -542,4 +542,33 @@ public class Solution {
 		 }
 
 	 }
+	 /*
+	  * 11. 盛最多水的容器
+	  * 2018/11/30
+	  */
+	 public int maxArea(int[] height) {
+	      int i=0,j=height.length-1;
+	      System.out.println(height.length);
+	      int maxArea = 0;
+	      while (i<j) {
+	    	//height[j-1]>height[i]?i++:j--;
+	    	 if (Math.min(height[i],height[j])*(j-i)>maxArea) {
+					maxArea = Math.min(height[i],height[j])*(j-i);
+	    		}
+	    	if (height[j]>height[i]) {
+	    		int pre = height[i];
+	    		i++;
+	    		while (i<j&&pre>=height[i]) {
+					i++;
+				}
+			}else {
+				int pre = height[j];
+				j--;
+				while (i<j&&pre>=height[j]) {
+					j--;
+				}
+			}
+		}
+		 return maxArea;
+	    }
 }

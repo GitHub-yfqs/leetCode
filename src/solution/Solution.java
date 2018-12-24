@@ -1,13 +1,16 @@
 package solution;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.w3c.dom.css.ElementCSSInlineStyle;
+
 public class Solution {
 	/*
-	 * 
+	 * 3. 无重复字符的最长子串
 	 */
 	 public int lengthOfLongestSubstring(String s) {
 	        char[] s1=s.toCharArray();
@@ -35,7 +38,9 @@ public class Solution {
 	        }
 	        return maxLength;
 	    }
-	 
+	 /*
+	  * 4. 寻找两个有序数组的中位数
+	  */
 	 public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 	      double median=0;
 	      int length1 = nums1.length;
@@ -114,7 +119,9 @@ public class Solution {
 	      }  
 		 return median;
 	    }
-	 
+	 /*
+	  * 152. 乘积最大子序列
+	  */
 	 public int maxProduct(int[] nums) {
 
 	        int max = nums[0];
@@ -661,5 +668,34 @@ public class Solution {
 			stringBuilder.append(strlist.get(i));
 		}
 	        return stringBuilder.toString();
+	    }
+	 /*
+	  * 15. 三数之和
+	  */
+	   public List<List<Integer>> threeSum(int[] nums) {
+		   List<List<Integer>> list = new ArrayList<>();
+		   Arrays.sort(nums);
+		   int j = 0,k = nums.length-1;
+		   for (int i=0;i<nums.length;i++) {
+			List<Integer> list2 = new ArrayList<>();
+			while (j<k) {
+				if (j!=i) {
+					if (nums[j]+nums[k]>nums[i]) {
+						k--;
+					}else if (nums[j]+nums[k]<nums[i]) {
+						j++;
+					}else {
+						list2.add(nums[i]);
+						list2.add(nums[j]);
+						list2.add(nums[k]);
+						list.add(list2);
+						break;
+					} 
+				}else {
+					j++;
+				}
+			}
+		}
+		   return list;
 	    }
 }

@@ -55,8 +55,11 @@ public class Test {
 		/*int[] height = {1,8,6,2,5,4,8,3,7};//{1,1};
 		System.out.println(s.maxArea(height));*/
 		
-		int num = 1916;
-		System.out.println(s.intToRoman(num));
+		/*int num = 1916;
+		System.out.println(s.intToRoman(num));*/
+		
+		int[] nums = {-1, 0, 1, 2, -1, -4};
+		System.out.println(s.threeSum(nums).toString());
 		
 	}
 
